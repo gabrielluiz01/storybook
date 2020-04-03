@@ -1,11 +1,10 @@
 import React from 'react';
 import './App.css';
-import Input from './components/Petronect/Input'
-
+import FilterSearch from './components/Petronect/FilterSearch/FilterSearch'
 function App(props) {
   return (
     <div className="App">
-      <Input type="password"/>
+      <FilterSearch />
     </div>
   );
 }
