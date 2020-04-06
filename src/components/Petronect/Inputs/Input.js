@@ -7,6 +7,7 @@ const InputForm = styled.input`
     border-radius: 4px;
     border: 1px solid #7FBA4C;
     padding: 0 0.5rem;
+    outline: none;
 `;
 
 const Label = styled.label`
