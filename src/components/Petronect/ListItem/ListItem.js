@@ -5,7 +5,7 @@ import Item from './Item';
 
 const List = styled.ul`
 	display: flex;
-	width: 100%;
+	// width: 100%;
 	align-items: center;
 	justify-content: space-between;
 	margin: 0;
