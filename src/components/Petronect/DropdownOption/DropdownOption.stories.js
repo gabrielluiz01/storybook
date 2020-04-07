@@ -6,5 +6,5 @@ export default {
     components: DropdownOption,
 };
 
-export const SidebarOption = () => <DropdownOption />
-export const SidebarSelectedOption = () => <DropdownOption background={'#116EA030'} isSelected={'600'}/>
+export const SidebarOption = () => <DropdownOption title={'Match e Relevância'} />
+export const SidebarSelectedOption = () => <DropdownOption isOpen title={'Match e Relevância'}/>

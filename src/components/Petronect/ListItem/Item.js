@@ -2,7 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Cell = styled.li`
-	padding: 0 0.5rem;
+	padding: .6rem .5rem;
+	font: 200 .9rem arial;
+	font-weight: ${props => props.bold && '600'};
+	color: ${props => (props.bold ? '#8C8C8C' : '#40404095')};
 	list-style: none;
 
 	&:nth-child(1) {
@@ -10,6 +13,7 @@ const Cell = styled.li`
 	}
 	&:nth-child(2) {
 		width: 10%;
+		color: ${props => props.color && '#009D00'};
 	}
 	&:nth-child(3) {
 		width: 20%;
@@ -30,7 +34,7 @@ const Cell = styled.li`
 
 const Item = (props) => {
 	return (
-		<Cell>{props.children}</Cell>
+		<Cell bold={props.bold}>{props.children}</Cell>
 	);
 }
 
