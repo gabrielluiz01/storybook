@@ -1,14 +1,17 @@
+// Libs
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+// Images
+import Logo from '../../assets/logo.svg';
+
 // Components
-import Logo from '../Petronect/ImageLogo/Logo';
-import DropdownOption from '../Petronect/DropdownOption/DropdownOption';
-import Option from '../Petronect/DropdownOption/Option';
-import List from '../Petronect/ListItem/ListItem';
-import FilterSearch from '../Petronect/FilterSearch/FilterSearch';
-import Item from '../Petronect/ListItem/Item';
-import Scrollbar from './Scrollbar';
+import DropdownOption from '../../components/Petronect/DropdownOption/DropdownOption';
+import Option from '../../components/Petronect/DropdownOption/Option';
+import List from '../../components/Petronect/ListItem/ListItem';
+import FilterSearch from '../../components/Petronect/FilterSearch/FilterSearch';
+import Item from '../../components/Petronect/ListItem/Item';
+import Scrollbar from '../../components/Scrollbar/Scrollbar';
 
 const Container = styled.div`
   display: flex;
@@ -16,7 +19,7 @@ const Container = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background: linear-gradient(rgb(17, 86, 128) 0%, rgb(17, 110, 160) 100%) transparent;
 
   @media(max-width: 768px){
@@ -57,9 +60,16 @@ const Sidebar = styled.div`
 `;
 
 const Menu = styled.ul`
+  display: flex;
+  flex-direction: column;
   width: 100%;
   margin: 0;
   padding: 0;
+`;
+
+const LogoImage = styled.img`
+  align-self: center;
+	margin: 3rem 0;
 `;
 
 const SidebarOption = styled.li`
@@ -242,7 +252,7 @@ class Home extends Component {
         <Content>
           <Sidebar>
             <Menu>
-              <Logo width={'250px'}/>
+              <LogoImage src={Logo} />
               <DropdownOption 
                 title={'Match Relevância'}
                 isOpen={isOpenDropdown && type === 'match'}

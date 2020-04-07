@@ -17,8 +17,8 @@ const List = styled.ul`
 		background: #cecece15;
 	}
 
-	&:nth-child(even) { background: #F7F7F7}
-	&:nth-child(odd) { background: #FFF }
+	&:nth-child(even) { background: #FFF }
+	&:nth-child(odd) { background: #F7F7F7 }
 `;
 
 const ListItem = (props) => {

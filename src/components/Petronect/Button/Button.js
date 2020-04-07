@@ -9,6 +9,7 @@ const ButtonSend = styled.button`
     font-size: 16px;
     color: ${props => props.color};
     background: ${props => props.background};
+    margin: ${props => props.margin};
 `;
 
 const Button = (props) => {
@@ -19,7 +20,8 @@ const Button = (props) => {
             onClick={props.onClick}
             width={props.width}
             height={props.height}
-            color={props.color || '#fff'}>
+            color={props.color || '#fff'}
+            margin={props.margin}>
                 {props.children}
             </ButtonSend>
     );

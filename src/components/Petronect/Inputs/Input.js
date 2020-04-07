@@ -8,6 +8,7 @@ const InputForm = styled.input`
     border: 1px solid #7FBA4C;
     padding: 0 0.5rem;
     outline: none;
+    margin: ${props => props.margin};
 `;
 
 const Label = styled.label`
@@ -28,7 +29,7 @@ export default function Input(props) {
         <>
             <Label>
                 <p>{props.labelText}</p>
-                <InputForm onChange={props.onChange} placeholder={props.placeholder} type={props.type} />
+                <InputForm onChange={props.onChange} placeholder={props.placeholder} type={props.type} margin={props.margin}/>
             </Label>
         </>
     );
