@@ -5,17 +5,20 @@ import Item from './Item';
 
 const List = styled.ul`
 	display: flex;
-	width: 100%;
 	align-items: center;
 	justify-content: space-between;
 	margin: 0;
-	padding: .4rem;
+	padding: 0 .4rem;
+	border-radius: 4px;
 	background: ${props => props.background};
 	cursor: pointer;
 
 	&:hover {
 		background: #cecece15;
 	}
+
+	&:nth-child(even) { background: #FFF }
+	&:nth-child(odd) { background: #F7F7F7 }
 `;
 
 const ListItem = (props) => {

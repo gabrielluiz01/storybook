@@ -7,6 +7,11 @@ const Box = styled.div`
     align-items: center;
     width: ${props => props.width};
     height: 32px;
+
+    @media(max-width: 768px){
+        width: 98%;
+        margin: .25rem;
+    }
 `;
 
 const InputSearch = styled.input`
@@ -15,6 +20,7 @@ const InputSearch = styled.input`
     border: 1px solid #116EA0;
     border-radius: 15px;
     padding: 0 0.5rem;
+    padding-left: 1rem;
     outline: none;
 `;
 
