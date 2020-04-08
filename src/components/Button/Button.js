@@ -10,6 +10,15 @@ const ButtonSend = styled.button`
     color: ${props => props.color};
     background: ${props => props.background};
     margin: ${props => props.margin};
+
+
+    @media(max-width: 640px){
+        width: ${props => props.widthMobile};
+        height: ${props => props.heightMobile};
+        margin: ${props => props.marginMobile};
+        position: ${props => props.position};
+        bottom: ${props => props.bottom};
+    }
 `;
 
 const Button = (props) => {
@@ -21,7 +30,12 @@ const Button = (props) => {
             width={props.width}
             height={props.height}
             color={props.color || '#fff'}
-            margin={props.margin}>
+            margin={props.margin}
+            widthMobile={props.widthMobile}
+            heightMobile={props.heightMobile}
+            position={props.position}
+            bottom={props.bottom}
+            marginMobile={props.marginMobile}>
                 {props.children}
             </ButtonSend>
     );

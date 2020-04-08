@@ -6,11 +6,11 @@ import styled from 'styled-components';
 import Logo from '../../assets/logo.svg';
 
 // Components
-import DropdownOption from '../../components/Petronect/DropdownOption/DropdownOption';
-import Option from '../../components/Petronect/DropdownOption/Option';
-import List from '../../components/Petronect/ListItem/ListItem';
-import FilterSearch from '../../components/Petronect/FilterSearch/FilterSearch';
-import Item from '../../components/Petronect/ListItem/Item';
+import DropdownOption from '../../components/DropdownOption/DropdownOption';
+import Option from '../../components/DropdownOption/Option';
+import List from '../../components/ListItem/ListItem';
+import FilterSearch from '../../components/FilterSearch/FilterSearch';
+import Item from '../../components/ListItem/Item';
 import Scrollbar from '../../components/Scrollbar/Scrollbar';
 
 const Container = styled.div`

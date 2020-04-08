@@ -4,12 +4,11 @@ import styled from 'styled-components'
 import { keyframes } from 'styled-components';
 
 // Components
-import Input from '../../components/Petronect/Inputs/Input';
-import Button from '../../components/Petronect/Button/Button';
-
+import Input from '../../components/Inputs/Input';
+import Button from '../../components/Button/Button';
+import Logo from '../../components/Logo/Logo';
 
 // Images
-import Logo from '../../assets/logo.svg';
 import Match from '../../assets/match.svg';
 import Desempenho from '../../assets/desempenho.svg';
 
@@ -33,8 +32,8 @@ const Overlay = styled.div`
 `;
 
 const BlockForm = styled.div`
-	width: 45vw;
-	height: 90vh;
+	width: 40vw;
+	height: 85vh;
 	background: #FFF;
 	display: flex;
 	justify-content: center;
@@ -45,7 +44,7 @@ const BlockForm = styled.div`
 
 	@media(max-width: 768px){
 		align-self: center;
-		width: 65vw;
+		width: 65%;
 		height: 50vh;
 		margin-top: 1rem;
 	}
@@ -78,50 +77,33 @@ const BlockOptions = styled.span`
 	justify-content: space-between;
 	align-items: center;
 	
-	@media(max-width: 768px){
+
+	@media(max-width: 425px){
 		width: 90%;
 	}
 `;
 
-const ImageLogo = styled.img`
-	margin-bottom: 3rem;
-`;
 
-const ImageDesempenho = styled.img``;
-
-const ImageMatch = styled.img``;
 
 const BlockImages = styled.div`
 	width: 40%;
-	background: green;
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	
-	p{
-		width: 80%;
-		font-size: 18px;
-		color: #FFFFFF;
-		line-height: 28px;
+	justify-content: center;
+
+	img{
+		width: 400px;
 	}
+
 
 	@media(max-width: 768px){
 		width: 90%;
+		height: 35vh;
 		display: flex;
-		align-items: center;
-		flex-direction: row-reverse;
-		justify-content: center;
 
 		img{
-			width: 300px;
-		}
-
-		p{
-			margin: 0;
-		}
-
-		span{
-			width: 40%;
+			width: 250px;
 		}
 	}
 
@@ -140,7 +122,8 @@ const animation = keyframes`
 
 const SlideImage = styled.img`
 	position:absolute;
-	animation: ${animation} 9s infinite;
+	bottom: -10vh;
+	animation: ${animation} 8s infinite;
 
 	&:nth-of-type(1) {
 		animation-delay: 0s;
@@ -149,27 +132,25 @@ const SlideImage = styled.img`
 		animation-delay: -3s;
 	}
 
-	@media (max-width: 1280px) {
-		width: 80%;
 
-		&:nth-of-type(1) {
-			width: 98%;
-		}
+	@media(max-width: 768px){
+		bottom: 5vh;
+		right: 10vw;
 	}
+
 `;
 
 const SlideMessage = styled.span`
 	position: absolute;
-	/* bottom: -4rem; */
 	width: 95%;
-	text-align: center;
-	display: inline-block;
 	margin: 0.25rem 0;
 	margin-top: 3rem;
-	color: var(--strytegy-primary-text);
-	font: 600 1.25rem 'Korolev', sans-serif;
+	color: #FFFFFF;
+	font: 1.25rem 'Korolev', sans-serif;
+	font-weight: bold;
+	bottom: -18vh;
 
-	animation: ${animation} 9s infinite;
+	animation: ${animation} 8s infinite;
 
 	&:nth-of-type(1) {
 		animation-delay: 0s;
@@ -178,13 +159,36 @@ const SlideMessage = styled.span`
 		animation-delay: -3s;
 	}
 
-	@media (max-width: 1280px) {
-		bottom: 0;
-		width: 85%;
+	@media(max-width: 768px){
+		width: 35%;
+		bottom: 15vh;
+		left: 12vw;
 		font-size: 1rem;
 	}
+
 `;
 
+const MessageCreateSlide = styled.p`
+	position: absolute;
+	bottom: -22vh;
+	font-size: 16px;
+	text-decoration: underline;
+	color: #AADF00;
+	animation: ${animation} 8s infinite;
+	cursor: pointer;
+
+	&:nth-of-type(1) {
+		animation-delay: 0s;
+	}
+	&:nth-of-type(2) {
+		animation-delay: -3s;
+	}
+
+	@media(max-width: 768px){
+		bottom: 10vh;
+		left: 12vw;
+	}
+`;
 
 export default class LoginScreen extends Component {
 
@@ -207,10 +211,12 @@ export default class LoginScreen extends Component {
 				<>
 					<SlideImage src={images[0]} />
 					<SlideMessage>{phrases[0]}</SlideMessage>
+					<MessageCreateSlide>Criar conta</MessageCreateSlide>
 				</>
 				<>
 					<SlideImage src={images[1]} />
 					<SlideMessage>{phrases[1]}</SlideMessage>
+					<MessageCreateSlide>Criar conta</MessageCreateSlide>
 				</>
 			</BlockImages>
 		);
@@ -222,9 +228,9 @@ export default class LoginScreen extends Component {
 			<Overlay>
 				<BlockForm>
 					<Form>
-						<ImageLogo src={Logo} alt="Petronect Logo"/>
-						<Input labelText="Email" placeholder="name@email.com" margin="0.5rem"/>
-						<Input labelText="Senha" placeholder="Insert password" margin="0.5rem"/>
+						<Logo width="200px" margin="0 0 3rem 0"/>
+						<Input type="email" labelText="Email" placeholder="name@email.com" margin="0.5rem"/>
+						<Input type="password" labelText="Senha" placeholder="Insert password" margin="0.5rem"/>
 						<Button background="#115680" width="20rem" height="3rem" margin="1rem 0">
 							Entrar
 						</Button>

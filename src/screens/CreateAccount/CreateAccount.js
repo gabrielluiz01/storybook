@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 
-import Input from '../../components/Petronect/Inputs/Input'
-import Button from '../../components/Petronect/Button/Button'
-import LogoWhite from '../../assets/logo-petronect-white.png'
+import Input from '../../components/Inputs/Input'
+import Button from '../../components/Button/Button'
+import Logo from '../../components/Logo/Logo'
 
 const Overlay = styled.div`
 	width: 100%;
@@ -18,6 +18,11 @@ const Overlay = styled.div`
 
 const ImageLogo = styled.img`
 	margin-bottom: 4rem;
+	width: 200px;
+
+	@media(max-width: 768px){
+		width: 180px;
+	}
 `;
 
 const Container = styled.div`
@@ -28,6 +33,18 @@ const Container = styled.div`
 	padding: 1rem;
 	display: flex;
 	justify-content: center;
+
+	@media(max-width: 768px){
+		width: 55%;
+	}
+
+	@media(max-width: 620px){
+		width: 95%;
+	}
+
+	@media(max-width: 320px){
+		width: 100%;
+	}
 `;
 
 const Form = styled.form`
@@ -54,19 +71,16 @@ const TextTerms = styled.p`
 	u{
 		cursor: pointer;
 	}
+
+	@media(max-width: 425px){
+		text-align: center;
+		width: 75%;
+		font-size: 0.8rem;
+	}
 `;
 
 // MODAL TERMS
 
-const OverlayModal = styled.div`
-width: 100%;
-min-height: 100vh;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-background-image: linear-gradient(to bottom, #115680, #116EA0);	
-`;
 
 const Modal = styled.div`
 width: 35vw;
@@ -77,12 +91,35 @@ align-items: center;
 padding: 0.5rem;
 border-radius: 4px;
 
-span{
-	width: 95%;
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
+@media(max-width: 768px){
+	width: 60%;
 }
+
+@media(max-width: 640px){
+	width: 100%;
+	min-height: 100vh;
+	position: absolute;
+	top: 0;
+	padding-bottom: 4rem;
+	overflow-y: auto;
+}
+
+@media(max-width: 320px){
+
+}
+
+	span{
+		width: 95%;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+	}
+
+	@media(max-width: 640px){
+		span{
+			justify-content: center;
+		}
+	}
 `;
 
 const TitleTerms = styled.h1`
@@ -90,6 +127,11 @@ color: #116EA0;
 font-size: 24px;
 align-self: flex-start;
 margin: 0.5rem 0 0.5rem 1.3rem;
+
+@media(max-width: 640px){
+	align-self: center;
+	margin: 1rem 0;
+}
 `; 
 
 const Content = styled.div`
@@ -100,6 +142,12 @@ flex-direction: column;
 justify-content: space-evenly;
 border-radius: 4px;
 padding: 1rem;
+
+
+@media(max-width: 640px){
+	min-height: 90vh;
+	background: #FFF;
+}
 `;
 
 const Petro = styled.p`
@@ -107,6 +155,10 @@ color: #505050;
 font-weight: bold;
 font-size: 14px;
 margin: 0.5rem 0 1rem 0;
+
+	@media(max-width: 640px){
+		font-size: 1rem;
+	}
 `;
 
 const TitleBlue = styled.p`
@@ -114,6 +166,10 @@ font-weight: normal;
 color: #116EA0;
 font-size: 14px;
 margin: 0.5rem 0 1rem 0;
+
+	@media(max-width: 640px){
+		font-size: 1rem;
+	}
 `;
 
 const SubTitleTerms = styled.p`
@@ -121,12 +177,20 @@ font-weight: bold;
 color: #505050;
 font-size: 14px;
 margin: 0.5rem 0 1rem 0;
+
+	@media(max-width: 640px){
+		font-size: 1rem;
+	}
 `;
 
 const Terms = styled.p`
-font-size: 14px;
-margin: 0.5rem 0 1.2rem 0;
-line-height: 22px;
+	font-size: 14px;
+	margin: 0.5rem 0 1.2rem 0;
+	line-height: 22px;
+
+	@media(max-width: 640px){
+		font-size: 1rem;
+	}
 `;
 
 export default class CreateAccount extends Component {
@@ -138,8 +202,8 @@ export default class CreateAccount extends Component {
 
 	modalTerms = () => {
   return (
-		<OverlayModal>
-			<ImageLogo src={LogoWhite} />
+		<Overlay>
+			<Logo type="white" width="200" margin="0 0 4rem 0" widthMobile="180px"/>			
 			<Modal>
 				<TitleTerms>Termos de Serviço</TitleTerms>
 				<Content>
@@ -159,13 +223,18 @@ export default class CreateAccount extends Component {
 						height="2rem"
 						background="#116EA0"
 						margin="0.3rem 0 0 0"
-						onClick={this.renderModalTerms}
+					  	onClick={this.renderModalTerms}
+					  	widthMobile="90%"
+					  	position="fixed"
+					  	heightMobile="3rem"
+					  	bottom="0"
+					  	marginMobile="0 0 1rem 0"
 					>
 						OK
 					</Button>
 				</span>
 			</Modal>
-		</OverlayModal>
+		</Overlay>
   );
 }
 
@@ -183,13 +252,13 @@ export default class CreateAccount extends Component {
 					this.modalTerms()
 				) : (
 					<>
-					<ImageLogo src={LogoWhite} />
+					<Logo type="white" width="200" margin="0 0 4rem 0" widthMobile="180px"/>
 						<Container>
 						<Form>
 							<TitleForm>Create account</TitleForm>
-							<Input labelText="Nome" placeholder="Nome" margin="0.5rem 0"/>
-							<Input labelText="Email" placeholder="nome@mail.com" margin="0.5rem 0"/>
-							<Input labelText="Senha" placeholder="Inserir Senha" margin="0.5rem 0"/>
+							<Input type="text" labelText="Nome" placeholder="Nome" margin="0.5rem 0"/>
+							<Input type="email" labelText="Email" placeholder="nome@mail.com" margin="0.5rem 0"/>
+							<Input type="password" labelText="Senha" placeholder="Inserir Senha" margin="0.5rem 0"/>
 							<TextTerms onClick={this.renderModalTerms}>Clique abaixo para concordar com os <u>Termos de Serviço</u> e registrar.</TextTerms>
 							<Button width="20rem" height="3rem" background="#116EA0" margin="0.5rem 0 1rem 0">Criar Conta</Button>
 						</Form>

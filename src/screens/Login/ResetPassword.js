@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import LogoWhite from '../../assets/logo-petronect-white.png';
+
 // Components
-import Input from '../../components/Petronect/Inputs/Input'
-import Button from '../../components/Petronect/Button/Button'
+import Input from '../../components/Inputs/Input'
+import Button from '../../components/Button/Button'
+import Logo from '../../components/Logo/Logo'
 
 const Overlay = styled.div`
 	width: 100%;
@@ -15,13 +16,8 @@ const Overlay = styled.div`
 	background-image: linear-gradient(to bottom, #115680, #116EA0);
 `;
 
-const LogoImage = styled.img`
-	margin-bottom: 3rem;
-	width: 180px;
-`;
-
 const Container = styled.div`
-	width: 30vw;
+	width: 28vw;
 	min-height: 65vh;
 	display: flex;
 	flex-direction: column;
@@ -76,13 +72,13 @@ export default class ResetPassword extends Component {
   render() {
 		return (
 			<Overlay>
-				<LogoImage src={LogoWhite}/>
+				<Logo type="white" width="180px" margin="0 0 3rem 0"/>
 				<Container>
 					<ContainerTitle>Password reset</ContainerTitle>
 					<ContainerParagraph>A confirmation code sent to name@email.com, please, paste it bellow:</ContainerParagraph>
-					<Input labelText="Confirmation code" placeholder="Insert here the code" margin="0.5rem 0"/>
-					<Input labelText="New password" placeholder="Insert here new password" margin="0.5rem 0"/>
-					<Input labelText="Repeat new password" placeholder="Repeat new password" margin="0.5rem 0"/>
+					<Input type="text" labelText="Confirmation code" placeholder="Insert here the code" margin="0.5rem 0"/>
+					<Input type="password" labelText="New password" placeholder="Insert here new password" margin="0.5rem 0"/>
+					<Input type="password" labelText="Repeat new password" placeholder="Repeat new password" margin="0.5rem 0"/>
 					<Button background="#115680" width="20rem" height="3rem" margin="1rem 0">
 						Proceed with password reset
 					</Button>

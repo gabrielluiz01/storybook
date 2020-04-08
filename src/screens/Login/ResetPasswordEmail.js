@@ -2,12 +2,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-// Images
-import LogoWhite from '../../assets/logo-petronect-white.png';
-
 // Components
-import Input from '../../components/Petronect/Inputs/Input'
-import Button from '../../components/Petronect/Button/Button'
+import Input from '../../components/Inputs/Input'
+import Button from '../../components/Button/Button'
+import Logo from '../../components/Logo/Logo'
 
 const Overlay = styled.div`
 	width: 100%;
@@ -19,14 +17,6 @@ const Overlay = styled.div`
 	background-image: linear-gradient(to bottom, #115680, #116EA0);
 `;
 
-const ImageLogo = styled.img`
-	width: 180px;
-	margin-bottom: 5rem;
-
-	@media(max-width: 640px){
-		margin-bottom: 2rem;
-	}
-`;
 
 const Container = styled.div`
 	width: 30vw;
@@ -40,7 +30,7 @@ const Container = styled.div`
 	justify-content: space-evenly;
 
 	@media(max-width: 768px){
-		width: 70%;
+		width: 55%;
 	}
 
 	@media(max-width: 640px){
@@ -51,7 +41,7 @@ const Container = styled.div`
 const ContainerTitle = styled.h1`
 	margin-bottom: 1rem;
 	align-self: flex-start;
-	margin-left: 2rem;
+	margin-left: 2.5rem;
 	color: #116EA0;
 `;
 
@@ -61,10 +51,10 @@ export default class ResetPassword extends Component{
 	render() {
 		return (
 			<Overlay>
-				<ImageLogo src={LogoWhite} />
+				<Logo type="white" width="180px" margin="0 0 5rem 0" marginMobile="0 0 2rem 0" />
 				<Container>
 					<ContainerTitle>Password reset</ContainerTitle>
-					<Input labelText="Email" placeholder="name@email.com" />
+					<Input type="email" labelText="Email" placeholder="name@email.com" />
 					<Button
 						background="#115680"
 						width="20rem"
